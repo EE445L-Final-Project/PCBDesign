@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="10" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -877,6 +877,15 @@ Mounting hardware 5-56 screw</description>
 <wire x1="0" y1="12.7" x2="1.27" y2="11.43" width="0.127" layer="21"/>
 <text x="-1.27" y="3.81" size="1.27" layer="21">Up</text>
 </package>
+<package name="P1.1MM">
+<description>&lt;b&gt;TEST PAD&lt;/b&gt; 1.1mm hole</description>
+<circle x="0" y="0" radius="0.762" width="0.1524" layer="51"/>
+<pad name="TP" x="0" y="0" drill="1.1" diameter="1.9304"/>
+<text x="-1.016" y="1.27" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="0" y="0" size="0.0254" layer="27">&gt;VALUE</text>
+<text x="-1.27" y="-2.54" size="1" layer="37">&gt;TP_SIGNAL_NAME</text>
+<rectangle x1="-0.3302" y1="-0.3302" x2="0.3302" y2="0.3302" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="TM4C123">
@@ -1052,6 +1061,15 @@ Mounting hardware 5-56 screw</description>
 <pin name="MOSI" x="-5.08" y="-7.62" length="short" direction="in" rot="R90"/>
 <text x="-24.13" y="7.62" size="1.778" layer="94">160x128 pixels</text>
 <text x="-6.35" y="7.62" size="1.778" layer="94">18-bit color</text>
+</symbol>
+<symbol name="TP">
+<wire x1="-0.762" y1="-0.762" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="0.762" y2="-0.762" width="0.254" layer="94"/>
+<wire x1="0.762" y1="-0.762" x2="0" y2="-1.524" width="0.254" layer="94"/>
+<wire x1="0" y1="-1.524" x2="-0.762" y2="-0.762" width="0.254" layer="94"/>
+<text x="-1.27" y="1.27" size="1.778" layer="95">&gt;NAME</text>
+<text x="1.27" y="-1.27" size="1.778" layer="97">&gt;TP_SIGNAL_NAME</text>
+<pin name="TP" x="0" y="-2.54" visible="off" length="short" direction="in" rot="R90"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -1420,6 +1438,29 @@ Source: http://focus.ti.com/lit/ds/symlink/tps63001.pdf</description>
 <attribute name="MPN" value="" constant="no"/>
 <attribute name="OC_FARNELL" value="unknown" constant="no"/>
 <attribute name="OC_NEWARK" value="unknown" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TP" prefix="TP">
+<description>&lt;b&gt;Test pad&lt;/b&gt;&lt;br&gt;
+Test point, black,	Keystone Electronics	5001,	Digikey	5001K-ND&lt;br&gt;
+Test point, orange,	Keystone Electronics	5003,	Digikey	5003K-ND&lt;br&gt;
+Test point, yellow,	Keystone Electronics	5004,	Digikey	5004K-ND&lt;br&gt;
+Test point, white,	Keystone Electronics	5002,	Digikey	5002K-ND&lt;br&gt;
+Test point, red,	Keystone Electronics	5000,	Digikey	5000K-ND</description>
+<gates>
+<gate name="G$1" symbol="TP" x="0" y="0"/>
+</gates>
+<devices>
+<device name="_KEYSTONE500X" package="P1.1MM">
+<connects>
+<connect gate="G$1" pin="TP" pad="TP"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="TP_SIGNAL_NAME" value="" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -2540,24 +2581,24 @@ In this library the device names are the same as the pin names of the symbols, t
 <part name="IC1" library="EE445L" deviceset="TM4C123" device="" technology="GH6PM"/>
 <part name="+3V1" library="EE445L" deviceset="+3V3" device=""/>
 <part name="SUPPLY1" library="EE445L" deviceset="GND" device=""/>
-<part name="C1" library="EE445L" deviceset="CAPACITOR" device="C0402K" value="0.1uF"/>
-<part name="C2" library="EE445L" deviceset="CAPACITOR" device="C0402K" value="0.1uF"/>
-<part name="C3" library="EE445L" deviceset="CAPACITOR" device="C0402K" value="1uF"/>
-<part name="C5" library="EE445L" deviceset="CAPACITOR" device="C0402K" value="0.01uF"/>
-<part name="C6" library="EE445L" deviceset="CAPACITOR" device="C0402K" value="0.1uF"/>
-<part name="C7" library="EE445L" deviceset="CAPACITOR" device="C0402K" value="0.01uF"/>
-<part name="C8" library="EE445L" deviceset="CAPACITOR" device="C0402K" value="0.1uF"/>
-<part name="C9" library="EE445L" deviceset="CAPACITOR" device="C0402K" value="1uF"/>
-<part name="C10" library="EE445L" deviceset="CAPACITOR" device="C0402K" value="0.01uF"/>
+<part name="C1" library="EE445L" deviceset="CAPACITOR" device="C0603K" value="0.1uF"/>
+<part name="C2" library="EE445L" deviceset="CAPACITOR" device="C0603K" value="0.1uF"/>
+<part name="C3" library="EE445L" deviceset="CAPACITOR" device="C0603K" value="1uF"/>
+<part name="C5" library="EE445L" deviceset="CAPACITOR" device="C0603K" value="0.01uF"/>
+<part name="C6" library="EE445L" deviceset="CAPACITOR" device="C0603K" value="0.1uF"/>
+<part name="C7" library="EE445L" deviceset="CAPACITOR" device="C0603K" value="0.01uF"/>
+<part name="C8" library="EE445L" deviceset="CAPACITOR" device="C0603K" value="0.1uF"/>
+<part name="C9" library="EE445L" deviceset="CAPACITOR" device="C0603K" value="1uF"/>
+<part name="C10" library="EE445L" deviceset="CAPACITOR" device="C0603K" value="0.01uF"/>
 <part name="RST" library="EE445L" deviceset="B3F-1052" device=""/>
-<part name="R1" library="EE445L" deviceset="RESISTOR" device="R0402" value="10k"/>
-<part name="C11" library="EE445L" deviceset="CAPACITOR" device="C0402K" value="10pF"/>
-<part name="C12" library="EE445L" deviceset="CAPACITOR" device="C0402K" value="10pF"/>
-<part name="C4-T" library="EE445L" deviceset="CAPACITOR" device="C0402K" value="2.2uF"/>
-<part name="C13" library="EE445L" deviceset="CAPACITOR" device="C0402K" value="10uF"/>
-<part name="C14" library="EE445L" deviceset="CAPACITOR" device="C0402K" value="10uF"/>
-<part name="C15" library="EE445L" deviceset="CAPACITOR" device="C0402K" value="0.1uF"/>
-<part name="C16" library="EE445L" deviceset="CAPACITOR" device="C0402K" value="10uF"/>
+<part name="R1" library="EE445L" deviceset="RESISTOR" device="R0603" value="10k"/>
+<part name="C11" library="EE445L" deviceset="CAPACITOR" device="C0603K" value="10pF"/>
+<part name="C12" library="EE445L" deviceset="CAPACITOR" device="C0603K" value="10pF"/>
+<part name="C4-T" library="EE445L" deviceset="CAPACITOR" device="C0603K" value="2.2uF"/>
+<part name="C13" library="EE445L" deviceset="CAPACITOR" device="C0603K" value="10uF"/>
+<part name="C14" library="EE445L" deviceset="CAPACITOR" device="C0603K" value="10uF"/>
+<part name="C15" library="EE445L" deviceset="CAPACITOR" device="C0603K" value="0.1uF"/>
+<part name="C16" library="EE445L" deviceset="CAPACITOR" device="C0603K" value="10uF"/>
 <part name="SUPPLY3" library="EE445L" deviceset="GND" device=""/>
 <part name="B1" library="microbuilder" deviceset="BATTERY" device="" value="JST 2-PH"/>
 <part name="SUPPLY4" library="EE445L" deviceset="GND" device=""/>
@@ -2566,25 +2607,30 @@ In this library the device names are the same as the pin names of the symbols, t
 <part name="FRAME2" library="frames" deviceset="A4L-LOC" device=""/>
 <part name="DIS1" library="EE445L" deviceset="ST7735" device=""/>
 <part name="SW-PC4" library="EE445L" deviceset="B3F-1052" device=""/>
-<part name="R4" library="EE445L" deviceset="RESISTOR" device="R0402" value="10k"/>
+<part name="R4" library="EE445L" deviceset="RESISTOR" device="R0603" value="10k"/>
 <part name="SW-PF0" library="EE445L" deviceset="B3F-1052" device=""/>
-<part name="R5" library="EE445L" deviceset="RESISTOR" device="R0402" value="10k"/>
+<part name="R5" library="EE445L" deviceset="RESISTOR" device="R0603" value="10k"/>
 <part name="BLE-DEBUG" library="SAMTEC-FTSH-105-01-X-DV" deviceset="SAMTEC-FTSH-105-01-X-DV" device="J"/>
 <part name="BLE" library="zyongye" deviceset="BGM220P" device=""/>
 <part name="ON/OFF" library="Z" deviceset="_SWITCH_SPDT_4.7" device=""/>
 <part name="JTAG" library="Z" deviceset="JTAG_SERIAL" device=""/>
-<part name="C19" library="EE445L" deviceset="CAPACITOR" device="C0402K" value="0.1uF"/>
-<part name="C20-T" library="EE445L" deviceset="CAPACITOR" device="C0402K" value="4.7uF"/>
-<part name="C17" library="EE445L" deviceset="CAPACITOR" device="C0402K" value="0.1uF"/>
-<part name="C18-T" library="EE445L" deviceset="CAPACITOR" device="C0402K" value="4.7uF"/>
+<part name="C19" library="EE445L" deviceset="CAPACITOR" device="C0603K" value="0.1uF"/>
+<part name="C20-T" library="EE445L" deviceset="CAPACITOR" device="C0603K" value="4.7uF"/>
+<part name="C17" library="EE445L" deviceset="CAPACITOR" device="C0603K" value="0.1uF"/>
+<part name="C18-T" library="EE445L" deviceset="CAPACITOR" device="C0603K" value="4.7uF"/>
 <part name="I1" library="445L_final" deviceset="IND_TPS" device=""/>
 <part name="SUPPLY7" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device="" value="PGND"/>
 <part name="SUPPLY8" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device="" value="PGND"/>
 <part name="SUPPLY9" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device="" value="PGND"/>
 <part name="SUPPLY10" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device="" value="PGND"/>
-<part name="R3" library="EE445L" deviceset="RESISTOR" device="R0402" value="100"/>
-<part name="R2" library="EE445L" deviceset="RESISTOR" device="R0402" value="1M"/>
+<part name="R3" library="EE445L" deviceset="RESISTOR" device="R0603" value="100"/>
+<part name="R2" library="EE445L" deviceset="RESISTOR" device="R0603" value="1M"/>
 <part name="CRYS" library="NX5032GA" deviceset="NX5032GA" device=""/>
+<part name="GND" library="EE445L" deviceset="TP" device="_KEYSTONE500X"/>
+<part name="+3.3V" library="EE445L" deviceset="TP" device="_KEYSTONE500X"/>
+<part name="SUPPLY2" library="EE445L" deviceset="GND" device=""/>
+<part name="+3V2" library="EE445L" deviceset="+3V3" device=""/>
+<part name="BAT" library="EE445L" deviceset="TP" device="_KEYSTONE500X"/>
 </parts>
 <sheets>
 <sheet>
@@ -2786,6 +2832,24 @@ Faiyaz Mostofa</text>
 <attribute name="NAME" x="-19.558" y="75.438" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="-13.462" y="72.898" size="1.778" layer="96" rot="R90"/>
 </instance>
+<instance part="GND" gate="G$1" x="20.32" y="124.46" smashed="yes">
+<attribute name="NAME" x="19.05" y="125.73" size="1.778" layer="95"/>
+<attribute name="TP_SIGNAL_NAME" x="21.59" y="123.19" size="1.778" layer="97"/>
+</instance>
+<instance part="+3.3V" gate="G$1" x="38.1" y="124.46" smashed="yes">
+<attribute name="NAME" x="36.83" y="125.73" size="1.778" layer="95"/>
+<attribute name="TP_SIGNAL_NAME" x="39.37" y="123.19" size="1.778" layer="97"/>
+</instance>
+<instance part="SUPPLY2" gate="GND" x="20.32" y="114.3" smashed="yes">
+<attribute name="VALUE" x="15.875" y="109.601" size="1.778" layer="96"/>
+</instance>
+<instance part="+3V2" gate="G$1" x="38.1" y="114.3" smashed="yes" rot="R180">
+<attribute name="VALUE" x="40.64" y="119.38" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="BAT" gate="G$1" x="50.8" y="124.46" smashed="yes">
+<attribute name="NAME" x="49.53" y="125.73" size="1.778" layer="95"/>
+<attribute name="TP_SIGNAL_NAME" x="52.07" y="123.19" size="1.778" layer="97"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -2931,6 +2995,11 @@ Faiyaz Mostofa</text>
 <wire x1="284.48" y1="78.74" x2="284.48" y2="86.36" width="0.1524" layer="91"/>
 <junction x="287.02" y="78.74"/>
 <label x="284.48" y="86.36" size="1.778" layer="95" rot="R90" xref="yes"/>
+</segment>
+<segment>
+<pinref part="+3V2" gate="G$1" pin="+3V3"/>
+<wire x1="38.1" y1="116.84" x2="38.1" y2="121.92" width="0.1524" layer="91"/>
+<pinref part="+3.3V" gate="G$1" pin="TP"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -3112,6 +3181,11 @@ Faiyaz Mostofa</text>
 <pinref part="SUPPLY5" gate="GND" pin="GND"/>
 <wire x1="-71.12" y1="20.32" x2="-68.58" y2="20.32" width="0.1524" layer="91"/>
 <junction x="-68.58" y="20.32"/>
+</segment>
+<segment>
+<pinref part="GND" gate="G$1" pin="TP"/>
+<pinref part="SUPPLY2" gate="GND" pin="GND"/>
+<wire x1="20.32" y1="121.92" x2="20.32" y2="116.84" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VDDC" class="0">
@@ -3354,6 +3428,11 @@ Faiyaz Mostofa</text>
 <pinref part="ON/OFF" gate="G$1" pin="P"/>
 <wire x1="22.86" y1="144.78" x2="17.78" y2="144.78" width="0.1524" layer="91"/>
 <label x="17.78" y="144.78" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<wire x1="50.8" y1="121.92" x2="50.8" y2="104.14" width="0.1524" layer="91"/>
+<label x="50.8" y="104.14" size="1.778" layer="95" xref="yes"/>
+<pinref part="BAT" gate="G$1" pin="TP"/>
 </segment>
 </net>
 <net name="IN" class="0">
