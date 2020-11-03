@@ -2,5 +2,7 @@
 !README.md
 !*.sch
 !*.brd
+!*.ipt
+!*.iam
 !.gitignore
 
